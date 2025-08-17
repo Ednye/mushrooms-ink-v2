@@ -110,21 +110,21 @@ function App() {
           <Button 
             variant={currentPage === 'home' ? 'secondary' : 'outline'}
             onClick={() => setCurrentPage('home')}
-            className={currentPage === 'home' ? '' : 'text-gray-900 border-gray-900 hover:bg-gray-100 hover:text-green-600'}
+            className={currentPage === 'home' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}
           >
             Companies
           </Button>
           <Button 
             variant={currentPage === 'research' ? 'secondary' : 'outline'}
             onClick={() => setCurrentPage('research')}
-            className={currentPage === 'research' ? '' : 'text-gray-900 border-gray-900 hover:bg-gray-100 hover:text-green-600'}
+            className={currentPage === 'research' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}
           >
             Research
           </Button>
           <Button 
             variant={currentPage === 'reports' ? 'secondary' : 'outline'}
             onClick={() => setCurrentPage('reports')}
-            className={currentPage === 'reports' ? '' : 'text-gray-900 border-gray-900 hover:bg-gray-100 hover:text-green-600'}
+            className={currentPage === 'reports' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}
           >
             Industry Reports
           </Button>
@@ -364,7 +364,7 @@ function App() {
                 <li>• Investment trends and funding patterns</li>
                 <li>• Geographic distribution insights</li>
               </ul>
-              <a href="https://mushrooms-ink.vercel.app/pdfs/Mushroom_Industry_Overview_2024.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+              <a href="/Mushroom_Industry_Overview_2024.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                 Download Report
               </a>
             </CardContent>
@@ -382,7 +382,7 @@ function App() {
                 <li>• Sustainability impact assessment</li>
                 <li>• Future market opportunities</li>
               </ul>
-              <a href="https://mushrooms-ink.vercel.app/pdfs/Biomaterials_Sector_Report.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+              <a href="/Biomaterials_Sector_Report.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                 Download Report
               </a>
             </CardContent>
@@ -400,7 +400,7 @@ function App() {
                 <li>• Investment trends and funding patterns</li>
                 <li>• Geographic distribution insights</li>
               </ul>
-              <a href="https://mushrooms-ink.vercel.app/pdfs/Alternative_Protein_Landscape.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+              <a href="/Alternative_Protein_Landscape.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                 Download Report
               </a>
             </CardContent>
@@ -418,7 +418,7 @@ function App() {
                 <li>• Consumer trends and market adoption</li>
                 <li>• Regulatory landscape and challenges</li>
               </ul>
-              <a href="https://mushrooms-ink.vercel.app/pdfs/Health_Wellness_Segment.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+              <a href="/Health_Wellness_Segment.pdf" target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
                 Download Report
               </a>
             </CardContent>
@@ -434,10 +434,72 @@ function App() {
       {currentPage === 'home' && <HomePage />}
       {currentPage === 'research' && <ResearchPage />}
       {currentPage === 'reports' && <IndustryReportsPage />}
-      <footer className="bg-gray-800 text-white py-6 px-4 text-center mt-auto">
+      <footer className="bg-gray-900 text-white py-12 px-4 mt-auto">
         <div className="max-w-7xl mx-auto">
-          <p>&copy; 2024 Mushrooms.ink. All rights reserved.</p>
-          <p className="text-sm mt-2">Disclaimer: The information provided on this website is for general informational purposes only and does not constitute professional advice.</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Mushrooms.ink</h3>
+              <p className="text-gray-300 text-sm">
+                Comprehensive database of mushroom and mycelium companies across 6 industries.
+              </p>
+              <div className="mt-4">
+                <div className="text-2xl font-bold text-green-400">{stats.companies}</div>
+                <div className="text-sm text-gray-400">Companies Tracked</div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="text-md font-semibold mb-4">Industries</h4>
+              <ul className="space-y-2 text-sm text-gray-300">
+                {industries.map(industry => (
+                  <li key={industry} className="hover:text-green-400 cursor-pointer">
+                    {industry} ({industryCounts[industry]})
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-md font-semibold mb-4">Research</h4>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>
+                  <button 
+                    onClick={() => setCurrentPage('research')}
+                    className="hover:text-green-400 text-left"
+                  >
+                    Research Articles
+                  </button>
+                </li>
+                <li className="text-gray-400">• Mycelium Materials</li>
+                <li className="text-gray-400">• Alternative Proteins</li>
+                <li className="text-gray-400">• Functional Mushrooms</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="text-md font-semibold mb-4">Industry Reports</h4>
+              <ul className="space-y-2 text-sm text-gray-300">
+                <li>
+                  <button 
+                    onClick={() => setCurrentPage('reports')}
+                    className="hover:text-green-400 text-left"
+                  >
+                    Download Reports
+                  </button>
+                </li>
+                <li className="text-gray-400">• Market Overview 2024</li>
+                <li className="text-gray-400">• Biomaterials Sector</li>
+                <li className="text-gray-400">• Health & Wellness</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p className="text-gray-400">&copy; 2024 Mushrooms.ink. All rights reserved.</p>
+            <p className="text-xs text-gray-500 mt-2">
+              Disclaimer: Information provided is for general purposes only and does not constitute professional advice.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
