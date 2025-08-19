@@ -237,29 +237,27 @@ function App() {
               className="pl-10 search-focus"
             />
           </div>
-          <Select value={industryFilter} onValueChange={setIndustryFilter}>
-            <SelectTrigger className="w-full md:w-64">
-              <SelectValue placeholder="Filter by industry" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Industries ({companiesData.length})</SelectItem>
-              {industries.map(industry => (
-                <SelectItem key={industry} value={industry}>
-                  {industry} ({industryCounts[industry]})
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="w-full md:w-48">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="name">Name A-Z</SelectItem>
-              <SelectItem value="founded">Newest First</SelectItem>
-              <SelectItem value="innovation">Innovation Level</SelectItem>
-            </SelectContent>
-          </Select>
+          <select 
+            value={industryFilter} 
+            onChange={(e) => setIndustryFilter(e.target.value)}
+            className="w-full md:w-64 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+          >
+            <option value="all">All Industries ({companiesData.length})</option>
+            {industries.map(industry => (
+              <option key={industry} value={industry}>
+                {industry} ({industryCounts[industry]})
+              </option>
+            ))}
+          </select>
+          <select 
+            value={sortBy} 
+            onChange={(e) => setSortBy(e.target.value)}
+            className="w-full md:w-48 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+          >
+            <option value="name">Name A-Z</option>
+            <option value="founded">Newest First</option>
+            <option value="innovation">Innovation Level</option>
+          </select>
         </div>
         <div className="mt-2 text-sm text-gray-600">
           Showing {filteredCompanies.length} of {companiesData.length} companies
@@ -359,30 +357,28 @@ function App() {
               />
             </div>
             <div className="flex gap-4">
-              <Select value={researchCategoryFilter} onValueChange={setResearchCategoryFilter}>
-                <SelectTrigger className="w-48">
-                  <SelectValue placeholder="Filter by category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories ({filteredResearchArticles.length})</SelectItem>
-                  {researchCategories.map(category => (
-                    <SelectItem key={category} value={category}>
-                      {category} ({researchCategoryCounts[category]})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Select value={researchSortBy} onValueChange={setResearchSortBy}>
-                <SelectTrigger className="w-40">
-                  <SelectValue placeholder="Sort by" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="year">Newest First</SelectItem>
-                  <SelectItem value="title">Title A-Z</SelectItem>
-                  <SelectItem value="category">Category</SelectItem>
-                  <SelectItem value="journal">Journal</SelectItem>
-                </SelectContent>
-              </Select>
+              <select 
+                value={researchCategoryFilter} 
+                onChange={(e) => setResearchCategoryFilter(e.target.value)}
+                className="w-48 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+              >
+                <option value="all">All Categories ({filteredResearchArticles.length})</option>
+                {researchCategories.map(category => (
+                  <option key={category} value={category}>
+                    {category} ({researchCategoryCounts[category]})
+                  </option>
+                ))}
+              </select>
+              <select 
+                value={researchSortBy} 
+                onChange={(e) => setResearchSortBy(e.target.value)}
+                className="w-40 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+              >
+                <option value="year">Newest First</option>
+                <option value="title">Title A-Z</option>
+                <option value="category">Category</option>
+                <option value="journal">Journal</option>
+              </select>
             </div>
           </div>
           <div className="mt-4 text-sm text-gray-600">
