@@ -280,7 +280,6 @@ function App() {
           </div>
           <div className="text-right">
             <div className="text-xs text-gray-500">Founded {company.founded}</div>
-            <div className="text-xs text-gray-500">{company.employees} employees</div>
           </div>
         </div>
       </CardHeader>
