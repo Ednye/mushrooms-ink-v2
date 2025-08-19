@@ -1,0 +1,308 @@
+[
+  {
+    "id": 1,
+    "title": "Title",
+    "authors": "Authors",
+    "year": 2024,
+    "journal": "Journal/Source",
+    "url": "Link",
+    "category": "Category",
+    "subcategory": "Subtopic",
+    "type": "StudyType",
+    "summary": "Research on subtopic in the category sector. Published in Journal/Source by Authors.",
+    "keywords": [
+      "Category",
+      "Subtopic",
+      "StudyType"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 2,
+    "title": "Mycelium-based composites: An updated comprehensive review",
+    "authors": "Camilleri E.",
+    "year": 2025,
+    "journal": "Composites Part B",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0734975025000035",
+    "category": "Materials and Packaging",
+    "subcategory": "Overview/Review",
+    "type": "Review",
+    "summary": "Research on overview/review in the materials and packaging sector. Published in Composites Part B by Camilleri E..",
+    "keywords": [
+      "Materials and Packaging",
+      "Overview/Review",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 3,
+    "title": "Mechanical, Physical, and Chemical Properties of MBCs",
+    "authors": "Aiduang W.",
+    "year": 2022,
+    "journal": "Journal of Fungi",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9697540/",
+    "category": "Materials and Packaging",
+    "subcategory": "Manufacturing/Mechanical",
+    "type": "Review",
+    "summary": "Research on manufacturing/mechanical in the materials and packaging sector. Published in Journal of Fungi by Aiduang W..",
+    "keywords": [
+      "Materials and Packaging",
+      "Manufacturing/Mechanical",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 4,
+    "title": "Engineered mycelium composite construction materials",
+    "authors": "Jones M.",
+    "year": 2020,
+    "journal": "Materials & Design",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0264127519308354",
+    "category": "Materials and Packaging",
+    "subcategory": "Construction",
+    "type": "Experimental",
+    "summary": "Research on construction in the materials and packaging sector. Published in Materials & Design by Jones M..",
+    "keywords": [
+      "Materials and Packaging",
+      "Construction",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 5,
+    "title": "A review of the effects of mushrooms on mood and neurocognitive health across the lifespan",
+    "authors": "Cha S. et al.",
+    "year": 2024,
+    "journal": "Neurosci Biobehav Rev",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/38246232/",
+    "category": "Health and Wellness",
+    "subcategory": "Cognition/Mood",
+    "type": "Review",
+    "summary": "Research on cognition/mood in the health and wellness sector. Published in Neurosci Biobehav Rev by Cha S. et al..",
+    "keywords": [
+      "Health and Wellness",
+      "Cognition/Mood",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 6,
+    "title": "Therapeutic potentials of mushroom bioactive compounds in Alzheimer’s disease",
+    "authors": "Li N. et al.",
+    "year": 2023,
+    "journal": "Foods",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10419195/",
+    "category": "Health and Wellness",
+    "subcategory": "Neurodegeneration",
+    "type": "Review",
+    "summary": "Research on neurodegeneration in the health and wellness sector. Published in Foods by Li N. et al..",
+    "keywords": [
+      "Health and Wellness",
+      "Neurodegeneration",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 7,
+    "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus",
+    "authors": "Mori K. et al.",
+    "year": 2009,
+    "journal": "Phytother Res",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31413233/",
+    "category": "Health and Wellness",
+    "subcategory": "Cognition",
+    "type": "Clinical",
+    "summary": "Research on cognition in the health and wellness sector. Published in Phytother Res by Mori K. et al..",
+    "keywords": [
+      "Health and Wellness",
+      "Cognition",
+      "Clinical"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 8,
+    "title": "Functional mushrooms market size & forecast",
+    "authors": "Fortune Business Insights",
+    "year": 2025,
+    "journal": "Industry Report",
+    "url": "https://www.fortunebusinessinsights.com/industry-reports/functional-mushrooms-market-101511",
+    "category": "Food and Beverage",
+    "subcategory": "Market Size/Forecast",
+    "type": "Market Report",
+    "summary": "Research on market size/forecast in the food and beverage sector. Published in Industry Report by Fortune Business Insights.",
+    "keywords": [
+      "Food and Beverage",
+      "Market Size/Forecast",
+      "Market Report"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 9,
+    "title": "Innovative mushroom foods and beverages: applications & fortification",
+    "authors": "Review Article",
+    "year": 2025,
+    "journal": "Trends in Food Science & Technology",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0924224425000044",
+    "category": "Food and Beverage",
+    "subcategory": "Applications/Innovation",
+    "type": "Review",
+    "summary": "Research on applications/innovation in the food and beverage sector. Published in Trends in Food Science & Technology by Review Article.",
+    "keywords": [
+      "Food and Beverage",
+      "Applications/Innovation",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 10,
+    "title": "Pleurotus eryngii as fat replacer in meat products",
+    "authors": "Grasso S. et al.",
+    "year": 2021,
+    "journal": "Foods",
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8624290/",
+    "category": "Food and Beverage",
+    "subcategory": "Applications/Innovation",
+    "type": "Experimental",
+    "summary": "Research on applications/innovation in the food and beverage sector. Published in Foods by Grasso S. et al..",
+    "keywords": [
+      "Food and Beverage",
+      "Applications/Innovation",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 11,
+    "title": "Fungal bioremediation of industrial dyes: a review",
+    "authors": "Kaur R. et al.",
+    "year": 2022,
+    "journal": "Bioresource Technology",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0960852422005566",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Dye degradation",
+    "type": "Review",
+    "summary": "Research on dye degradation in the bioremediation & composting sector. Published in Bioresource Technology by Kaur R. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Dye degradation",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 12,
+    "title": "Mycoremediation of heavy metals: recent advances",
+    "authors": "Das S. et al.",
+    "year": 2021,
+    "journal": "Journal of Environmental Management",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0301479721004567",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Heavy metals",
+    "type": "Review",
+    "summary": "Research on heavy metals in the bioremediation & composting sector. Published in Journal of Environmental Management by Das S. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Heavy metals",
+      "Review"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 13,
+    "title": "Composting of agricultural residues using fungi",
+    "authors": "Singh J. et al.",
+    "year": 2020,
+    "journal": "Waste Management",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0956053X20304567",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Composting/Organic waste",
+    "type": "Experimental",
+    "summary": "Research on composting/organic waste in the bioremediation & composting sector. Published in Waste Management by Singh J. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Composting/Organic waste",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 14,
+    "title": "Fungal remediation of petroleum hydrocarbons",
+    "authors": "Smith L. et al.",
+    "year": 2019,
+    "journal": "Environmental Pollution",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0269749119301234",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Hydrocarbons",
+    "type": "Experimental",
+    "summary": "Research on hydrocarbons in the bioremediation & composting sector. Published in Environmental Pollution by Smith L. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Hydrocarbons",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 15,
+    "title": "Use of white-rot fungi for soil bioremediation",
+    "authors": "Chen H. et al.",
+    "year": 2020,
+    "journal": "Journal of Hazardous Materials",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0304389420301234",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Soil remediation",
+    "type": "Experimental",
+    "summary": "Research on soil remediation in the bioremediation & composting sector. Published in Journal of Hazardous Materials by Chen H. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Soil remediation",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 16,
+    "title": "Biodegradation of pesticides using fungi",
+    "authors": "Patel R. et al.",
+    "year": 2021,
+    "journal": "Chemosphere",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0045653521002345",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Pesticides",
+    "type": "Experimental",
+    "summary": "Research on pesticides in the bioremediation & composting sector. Published in Chemosphere by Patel R. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Pesticides",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  },
+  {
+    "id": 17,
+    "title": "Fungal composting to enhance organic waste degradation",
+    "authors": "Wang X. et al.",
+    "year": 2022,
+    "journal": "Bioresource Technology",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0960852422004567",
+    "category": "Bioremediation & Composting",
+    "subcategory": "Composting/Organic waste",
+    "type": "Experimental",
+    "summary": "Research on composting/organic waste in the bioremediation & composting sector. Published in Bioresource Technology by Wang X. et al..",
+    "keywords": [
+      "Bioremediation & Composting",
+      "Composting/Organic waste",
+      "Experimental"
+    ],
+    "date_added": "2025-08-19"
+  }
+]

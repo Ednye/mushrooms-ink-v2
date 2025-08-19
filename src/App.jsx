@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input.jsx'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import companiesData from './assets/companies_database.json'
+import researchData from './assets/research_articles.json'
 import affiliateData from './assets/affiliate_companies.json'
 import './App.css'
 
@@ -13,6 +14,11 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [industryFilter, setIndustryFilter] = useState('all')
   const [sortBy, setSortBy] = useState('name')
+  
+  // Research page state
+  const [researchSearchTerm, setResearchSearchTerm] = useState('')
+  const [researchCategoryFilter, setResearchCategoryFilter] = useState('all')
+  const [researchSortBy, setResearchSortBy] = useState('year')
 
   // Get unique industries from the data
   const industries = useMemo(() => {
@@ -83,6 +89,54 @@ function App() {
     const counts = {}
     companiesData.forEach(company => {
       counts[company.industry] = (counts[company.industry] || 0) + 1
+    })
+    return counts
+  }, [])
+
+  // Research articles logic
+  const researchCategories = useMemo(() => {
+    const uniqueCategories = [...new Set(researchData.map(article => article.category))]
+    return uniqueCategories.filter(cat => cat !== 'Category') // Remove invalid category
+  }, [])
+
+  const filteredResearchArticles = useMemo(() => {
+    let filtered = researchData.filter(article => {
+      const matchesSearch = researchSearchTerm === '' || 
+        article.title.toLowerCase().includes(researchSearchTerm.toLowerCase()) ||
+        article.authors.toLowerCase().includes(researchSearchTerm.toLowerCase()) ||
+        article.journal.toLowerCase().includes(researchSearchTerm.toLowerCase()) ||
+        article.summary.toLowerCase().includes(researchSearchTerm.toLowerCase()) ||
+        article.keywords.some(keyword => keyword.toLowerCase().includes(researchSearchTerm.toLowerCase()))
+
+      const matchesCategory = researchCategoryFilter === 'all' || article.category === researchCategoryFilter
+
+      return matchesSearch && matchesCategory && article.category !== 'Category'
+    })
+
+    filtered.sort((a, b) => {
+      switch (researchSortBy) {
+        case 'title':
+          return a.title.localeCompare(b.title)
+        case 'year':
+          return b.year - a.year
+        case 'category':
+          return a.category.localeCompare(b.category)
+        case 'journal':
+          return a.journal.localeCompare(b.journal)
+        default:
+          return 0
+      }
+    })
+
+    return filtered
+  }, [researchSearchTerm, researchCategoryFilter, researchSortBy])
+
+  const researchCategoryCounts = useMemo(() => {
+    const counts = {}
+    researchData.forEach(article => {
+      if (article.category !== 'Category') {
+        counts[article.category] = (counts[article.category] || 0) + 1
+      }
     })
     return counts
   }, [])
@@ -290,62 +344,128 @@ function App() {
     </main>
   )
 
-  const ResearchPage = () => (
-    <main className="py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Articles</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="card-hover">
-            <CardHeader>
-              <CardTitle>The Future of Mycelium Materials</CardTitle>
-              <CardDescription>Biomaterials • Published Dec 2024</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
-                Exploring the latest developments in mycelium-based materials and their applications in fashion, packaging, and construction industries.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Sustainability</span>
-                <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Innovation</span>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="card-hover">
-            <CardHeader>
-              <CardTitle>Alternative Protein Market Analysis</CardTitle>
-              <CardDescription>Food & Beverage • Published Nov 2024</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
-                Comprehensive analysis of the mushroom-based alternative protein market, including growth projections and key players.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Market Research</span>
-                <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Food Tech</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="card-hover">
-            <CardHeader>
-              <CardTitle>Functional Mushrooms in Healthcare</CardTitle>
-              <CardDescription>Health & Wellness • Published Oct 2024</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-600 mb-4">
-                Research on the therapeutic potential of functional mushrooms and their integration into modern healthcare practices.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Healthcare</span>
-                <span className="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">Clinical Research</span>
-              </div>
-            </CardContent>
-          </Card>
+  const ResearchPage = () => {
+    const ResearchSearchAndFilter = () => (
+      <section className="py-6 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <Input
+                placeholder="Search articles, authors, journals..."
+                value={researchSearchTerm}
+                onChange={(e) => setResearchSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <div className="flex gap-4">
+              <Select value={researchCategoryFilter} onValueChange={setResearchCategoryFilter}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="Filter by category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories ({filteredResearchArticles.length})</SelectItem>
+                  {researchCategories.map(category => (
+                    <SelectItem key={category} value={category}>
+                      {category} ({researchCategoryCounts[category]})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select value={researchSortBy} onValueChange={setResearchSortBy}>
+                <SelectTrigger className="w-40">
+                  <SelectValue placeholder="Sort by" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="year">Newest First</SelectItem>
+                  <SelectItem value="title">Title A-Z</SelectItem>
+                  <SelectItem value="category">Category</SelectItem>
+                  <SelectItem value="journal">Journal</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div className="mt-4 text-sm text-gray-600">
+            Showing {filteredResearchArticles.length} of {researchData.filter(a => a.category !== 'Category').length} research articles
+          </div>
         </div>
-      </div>
-    </main>
-  )
+      </section>
+    )
+
+    const ResearchCard = ({ article }) => (
+      <Card className="card-hover h-full">
+        <CardHeader>
+          <CardTitle className="text-lg leading-tight">{article.title}</CardTitle>
+          <CardDescription>
+            {article.authors} • {article.year} • {article.journal}
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-3">
+            <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded mr-2">
+              {article.category}
+            </span>
+            <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded mr-2">
+              {article.subcategory}
+            </span>
+            <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">
+              {article.type}
+            </span>
+          </div>
+          <p className="text-sm text-gray-600 mb-4 line-clamp-3">
+            {article.summary}
+          </p>
+          <a 
+            href={article.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-green-600 hover:text-green-700 text-sm font-medium inline-block"
+          >
+            Read Full Article →
+          </a>
+        </CardContent>
+      </Card>
+    )
+
+    return (
+      <main>
+        <div className="py-8 px-4">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Articles</h2>
+            <p className="text-gray-600 mb-8">
+              Curated collection of the latest research in mushroom and mycelium technologies across industries.
+            </p>
+          </div>
+        </div>
+        
+        <ResearchSearchAndFilter />
+        
+        <section className="py-8 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredResearchArticles.map(article => (
+                <ResearchCard key={article.id} article={article} />
+              ))}
+            </div>
+            {filteredResearchArticles.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-gray-500 text-lg">No research articles found matching your criteria.</p>
+                <Button 
+                  onClick={() => {
+                    setResearchSearchTerm('')
+                    setResearchCategoryFilter('all')
+                  }}
+                  className="mt-4"
+                >
+                  Clear Filters
+                </Button>
+              </div>
+            )}
+          </div>
+        </section>
+      </main>
+    )
+  }
 
   const IndustryReportsPage = () => (
     <main className="py-8 px-4">
