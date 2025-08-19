@@ -18,9 +18,12 @@ const Select = ({ children, value, onValueChange }) => {
   
   return (
     <div className="relative" ref={selectRef}>
-      {React.Children.map(children, child => 
-        React.cloneElement(child, { value, onValueChange, isOpen, setIsOpen })
-      )}
+      {React.Children.map(children, child => {
+        if (child.type.displayName === 'SelectTrigger') {
+          return React.cloneElement(child, { value, onValueChange, isOpen, setIsOpen })
+        }
+        return React.cloneElement(child, { value, onValueChange, isOpen, setIsOpen })
+      })}
     </div>
   )
 }
@@ -36,7 +39,9 @@ const SelectTrigger = React.forwardRef(({ className, children, value, onValueCha
       ref={ref}
       {...props}
     >
-      {children}
+      {React.Children.map(children, child => 
+        React.cloneElement(child, { value })
+      )}
       <svg className={cn("h-4 w-4 opacity-50 transition-transform", isOpen && "rotate-180")} fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
@@ -46,7 +51,10 @@ const SelectTrigger = React.forwardRef(({ className, children, value, onValueCha
 SelectTrigger.displayName = "SelectTrigger"
 
 const SelectValue = ({ placeholder, value }) => {
-  return <span>{value || placeholder}</span>
+  if (!value || value === 'all') {
+    return <span className="text-gray-500">{placeholder}</span>
+  }
+  return <span>{value}</span>
 }
 
 const SelectContent = ({ children, value, onValueChange, isOpen, setIsOpen }) => {
