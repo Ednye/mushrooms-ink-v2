@@ -278,9 +278,6 @@ function App() {
               {company.industry} • {company.country}
             </CardDescription>
           </div>
-          <div className="text-right">
-            <div className="text-xs text-gray-500">Founded {company.founded}</div>
-          </div>
         </div>
       </CardHeader>
       <CardContent>
