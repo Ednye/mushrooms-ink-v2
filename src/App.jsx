@@ -552,11 +552,19 @@ function App() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Mushrooms.ink</h3>
               <p className="text-gray-300 text-sm">
-                Comprehensive database of mushroom and mycelium companies across 6 industries.
+                Comprehensive database of mushroom and mycelium companies across 7 industries.
               </p>
               <div className="mt-4">
                 <div className="text-2xl font-bold text-green-400">{stats.companies}</div>
                 <div className="text-sm text-gray-400">Companies Tracked</div>
+              </div>
+              <div className="mt-4">
+                <a 
+                  href="mailto:success@ednye.com?subject=Submit Company for Review - Mushrooms.ink&body=Company Name:%0D%0AWebsite:%0D%0AIndustry:%0D%0ACountry:%0D%0AProducts/Services:%0D%0AAdditional Information:"
+                  className="inline-block px-4 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors"
+                >
+                  Submit a Company
+                </a>
               </div>
             </div>
             
