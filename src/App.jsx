@@ -145,7 +145,19 @@ function App() {
     <header className="gradient-header py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-4xl font-bold text-white text-shadow">Mushrooms.ink</h1>
+          <div className="flex items-center gap-4">
+            <img 
+              src="/logo.png" 
+              alt="Mushrooms.ink Logo" 
+              className="h-16 w-auto"
+            />
+            <div>
+              <h1 className="text-4xl font-bold text-white text-shadow">Mushrooms.ink</h1>
+              <p className="text-xl text-green-50 mt-1">
+                Comprehensive Mushroom & Mycelium Company Database
+              </p>
+            </div>
+          </div>
           {currentPage !== 'home' && (
             <Button 
               variant="outline" 
@@ -157,9 +169,6 @@ function App() {
             </Button>
           )}
         </div>
-        <p className="text-xl text-green-50">
-          Comprehensive Mushroom & Mycelium Company Database
-        </p>
         <nav className="mt-6 flex gap-4">
           <Button 
             variant={currentPage === 'home' ? 'secondary' : 'outline'}
