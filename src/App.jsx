@@ -233,53 +233,49 @@ function App() {
     </section>
   )
 
-  const SearchAndFilter = () => {
-    const searchInputRef = React.useRef(null)
-    
-    return (
-      <section className="py-4 px-4 bg-white border-b">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
-                ref={searchInputRef}
-                placeholder="Search companies, products, technologies..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 search-focus"
-                autoComplete="off"
-              />
-            </div>
-            <select 
-              value={industryFilter} 
-              onChange={(e) => setIndustryFilter(e.target.value)}
-              className="w-full md:w-64 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
-            >
-              <option value="all">All Industries ({companiesData.length})</option>
-              {industries.map(industry => (
-                <option key={industry} value={industry}>
-                  {industry} ({industryCounts[industry]})
-                </option>
-              ))}
-            </select>
-            <select 
-              value={sortBy} 
-              onChange={(e) => setSortBy(e.target.value)}
-              className="w-full md:w-48 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
-            >
-              <option value="name">Name A-Z</option>
-              <option value="founded">Newest First</option>
-              <option value="innovation">Innovation Level</option>
-            </select>
+  const SearchAndFilter = () => (
+    <section className="py-4 px-4 bg-white border-b">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <input
+              type="text"
+              placeholder="Search companies, products, technologies..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 pl-10 text-sm ring-offset-background placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 focus-visible:ring-offset-2"
+              autoComplete="off"
+            />
           </div>
-          <div className="mt-2 text-sm text-gray-600">
-            Showing {filteredCompanies.length} of {companiesData.length} companies
-          </div>
+          <select 
+            value={industryFilter} 
+            onChange={(e) => setIndustryFilter(e.target.value)}
+            className="w-full md:w-64 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+          >
+            <option value="all">All Industries ({companiesData.length})</option>
+            {industries.map(industry => (
+              <option key={industry} value={industry}>
+                {industry} ({industryCounts[industry]})
+              </option>
+            ))}
+          </select>
+          <select 
+            value={sortBy} 
+            onChange={(e) => setSortBy(e.target.value)}
+            className="w-full md:w-48 h-10 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+          >
+            <option value="name">Name A-Z</option>
+            <option value="founded">Newest First</option>
+            <option value="innovation">Innovation Level</option>
+          </select>
         </div>
-      </section>
-    )
-  }
+        <div className="mt-2 text-sm text-gray-600">
+          Showing {filteredCompanies.length} of {companiesData.length} companies
+        </div>
+      </div>
+    </section>
+  )
 
   const CompanyCard = ({ company }) => (
     <Card className="card-hover">
