@@ -142,18 +142,20 @@ function App() {
   }, [])
 
   const Header = () => (
-    <header className="gradient-header py-8 px-4">
+    <header className="gradient-header py-6 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 gap-4">
+          <div className="flex items-center gap-3 min-w-0">
             <img 
               src="/logo.png" 
               alt="Mushrooms.ink Logo" 
-              className="h-16 w-auto"
+              className="h-12 sm:h-16 w-auto flex-shrink-0"
             />
-            <div>
-              <h1 className="text-4xl font-bold text-white text-shadow">Mushrooms.ink</h1>
-              <p className="text-xl text-green-50 mt-1">
+            <div className="min-w-0 flex-1">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-shadow truncate">
+                Mushrooms.ink
+              </h1>
+              <p className="text-sm sm:text-lg lg:text-xl text-green-50 mt-1 leading-tight">
                 Comprehensive Mushroom & Mycelium Company Database
               </p>
             </div>
@@ -162,32 +164,32 @@ function App() {
             <Button 
               variant="outline" 
               onClick={() => setCurrentPage('home')}
-              className="text-white border-white hover:bg-white hover:text-green-600"
+              className="text-white border-white hover:bg-white hover:text-green-600 flex-shrink-0 text-sm"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Home
             </Button>
           )}
         </div>
-        <nav className="mt-6 flex gap-4">
+        <nav className="mt-4 flex flex-wrap gap-2 sm:gap-4">
           <Button 
             variant={currentPage === 'home' ? 'secondary' : 'outline'}
             onClick={() => setCurrentPage('home')}
-            className={currentPage === 'home' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}
+            className={`text-sm sm:text-base ${currentPage === 'home' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}`}
           >
             Companies
           </Button>
           <Button 
             variant={currentPage === 'research' ? 'secondary' : 'outline'}
             onClick={() => setCurrentPage('research')}
-            className={currentPage === 'research' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}
+            className={`text-sm sm:text-base ${currentPage === 'research' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}`}
           >
             Research
           </Button>
           <Button 
             variant={currentPage === 'reports' ? 'secondary' : 'outline'}
             onClick={() => setCurrentPage('reports')}
-            className={currentPage === 'reports' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}
+            className={`text-sm sm:text-base ${currentPage === 'reports' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}`}
           >
             Industry Reports
           </Button>
@@ -557,22 +559,22 @@ function App() {
       {currentPage === 'home' && <HomePage />}
       {currentPage === 'research' && <ResearchPage />}
       {currentPage === 'reports' && <IndustryReportsPage />}
-      <footer className="bg-gray-900 text-white py-12 px-4 mt-auto">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12 px-4 mt-auto">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div className="sm:col-span-2 lg:col-span-1">
               <h3 className="text-lg font-semibold mb-4">Mushrooms.ink</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-300 text-sm leading-relaxed">
                 Comprehensive database of mushroom and mycelium companies across 7 industries.
               </p>
               <div className="mt-4">
-                <div className="text-2xl font-bold text-green-400">{stats.companies}</div>
-                <div className="text-sm text-gray-400">Companies Tracked</div>
+                <div className="text-xl sm:text-2xl font-bold text-green-400">{stats.companies}</div>
+                <div className="text-xs sm:text-sm text-gray-400">Companies Tracked</div>
               </div>
               <div className="mt-4">
                 <a 
                   href="mailto:success@ednye.com?subject=Submit Company for Review - Mushrooms.ink&body=Company Name:%0D%0AWebsite:%0D%0AIndustry:%0D%0ACountry:%0D%0AProducts/Services:%0D%0AAdditional Information:"
-                  className="inline-block px-4 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors"
+                  className="inline-block px-3 sm:px-4 py-2 bg-green-600 text-white text-xs sm:text-sm rounded hover:bg-green-700 transition-colors"
                 >
                   Submit a Company
                 </a>
@@ -581,9 +583,9 @@ function App() {
             
             <div>
               <h4 className="text-md font-semibold mb-4">Industries</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
                 {industries.map(industry => (
-                  <li key={industry} className="hover:text-green-400 cursor-pointer">
+                  <li key={industry} className="hover:text-green-400 cursor-pointer break-words">
                     {industry} ({industryCounts[industry]})
                   </li>
                 ))}
@@ -592,7 +594,7 @@ function App() {
             
             <div>
               <h4 className="text-md font-semibold mb-4">Research</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
                 <li>
                   <button 
                     onClick={() => setCurrentPage('research')}
@@ -609,7 +611,7 @@ function App() {
             
             <div>
               <h4 className="text-md font-semibold mb-4">Industry Reports</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
                 <li>
                   <button 
                     onClick={() => setCurrentPage('reports')}
