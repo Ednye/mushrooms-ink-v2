@@ -307,7 +307,21 @@ function App() {
           </span>
         </div>
         <p className="text-xs text-gray-500 line-clamp-2">{company.description}</p>
-        {company.website && (
+        {company.affiliate && company.affiliateUrl ? (
+          <div className="mt-2">
+            <a 
+              href={company.affiliateUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-green-600 hover:text-green-700 text-sm font-medium inline-block"
+            >
+              Visit Website →
+            </a>
+            <div className="text-xs text-orange-600 font-medium mt-1">
+              {company.discountAmount} discount code: {company.discountCode}
+            </div>
+          </div>
+        ) : company.website ? (
           <a 
             href={`https://${company.website}`} 
             target="_blank" 
@@ -316,7 +330,7 @@ function App() {
           >
             Visit Website →
           </a>
-        )}
+        ) : null}
       </CardContent>
     </Card>
   )
