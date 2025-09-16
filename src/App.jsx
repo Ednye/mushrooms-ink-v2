@@ -184,7 +184,7 @@ function App() {
             onClick={() => setCurrentPage('research')}
             className={`text-sm sm:text-base ${currentPage === 'research' ? 'bg-white text-green-600' : 'text-white border-white hover:bg-white hover:text-green-600'}`}
           >
-            Research
+            Industry Activity
           </Button>
           <Button 
             variant={currentPage === 'reports' ? 'secondary' : 'outline'}
@@ -450,9 +450,9 @@ function App() {
       <main>
         <div className="py-8 px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Articles</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Industry Activity</h2>
             <p className="text-gray-600 mb-8">
-              Curated collection of the latest research in mushroom and mycelium technologies across industries.
+              Latest trends, developments, and insights in the mushroom and mycelium industry.
             </p>
           </div>
         </div>
@@ -614,7 +614,7 @@ function App() {
                     onClick={() => setCurrentPage('research')}
                     className="hover:text-green-400 text-left"
                   >
-                    Research Articles
+                    Industry Activity
                   </button>
                 </li>
                 <li className="text-gray-400">• Mycelium Materials</li>
